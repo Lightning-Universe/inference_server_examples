@@ -8,7 +8,7 @@ class BaseServer:
         """Setup happens once per inference server set up.
         Things like model load, pipeline initialization, etc. should happen here.
         """
-        self.model = lambda x: 2*x
+        self._model = lambda x: 2*x
 
     def predict(self, request: List[str]) -> List[str]:
         """Predict makes requests processing and prediction.
@@ -16,7 +16,7 @@ class BaseServer:
         """
         results = []
         for request in request:
-            results.append(self.model(request))
+            results.append(self._model(request))
         return results
 
 
