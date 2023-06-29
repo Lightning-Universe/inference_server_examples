@@ -1,22 +1,27 @@
-# Inference server file should contain the single class named BaseServer,
-# with two methods defined:
-#   - setup(): sets up your model;
-#   - predict(): makes predictions.
-class BaseServer:
-    # Setup step happens once per inference server setup.
-    # All setup things like model load, pipeline setup, etc. should happen here:
-    def setup(self):
-        class DummyModel:
-            def predict(self, input: str) -> str:
-                return f"Prediction for: {input}"
-        self._model = DummyModel()
+# Inference server file should contain the single class named BaseServer.
+from typing import List
 
-    # Prediction step makes requests processing and prediction.
-    # It should take list of requests and return list of prediction results.
-    # Call your model/pipeline that your set up in setup() to get the predictions.
+
+class BaseServer:
+    """Class BaseServer should contain two methods."""
+    def setup(self):
+        """Setup happens once per inference server set up.
+        Things like model load, pipeline initialization, etc. should happen here.
+        """
+        self._model = lambda x: 2*x
+
     def predict(self, request: List[str]) -> List[str]:
+        """Predict makes requests processing and prediction.
+        It should take a list of requests and return a list of prediction results.
+        """
         results = []
         for request in request:
-            result = self._model.predict(request)
-            results.append(result)
+            results.append(self._model(request))
         return results
+
+
+# You can try your server running it locally:
+if __name__ == "__main__":
+    s = BaseServer()
+    s.setup()
+    print(s.predict(["abc"]))
