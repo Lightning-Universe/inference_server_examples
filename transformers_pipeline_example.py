@@ -1,5 +1,6 @@
 # This is an example of inference server that makes texts summarization
 # using summarization pipeline from Huggingface transformers.
+# Please refer https://huggingface.co/docs/transformers/tasks/summarization to get more info about the pipeline.
 from typing import List
 from transformers import pipeline
 

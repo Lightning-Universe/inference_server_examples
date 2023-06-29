@@ -1,6 +1,6 @@
 # This is an example of inference server that classifies images according to ImageNet classes
 # using pre-trained ResNet18 model from torchvision collection.
-# Please refer https://pytorch.org/hub/pytorch_vision_resnet/ to see this example on PyTorch website.
+# Please refer https://pytorch.org/hub/pytorch_vision_resnet/ to see the model description on PyTorch website.
 import base64, io
 import requests
 from typing import List
