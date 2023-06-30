@@ -68,7 +68,7 @@ class BaseServer:
         return results
 
 
-# You can try your server running it locally:
+# run server locally
 if __name__ == "__main__":
     s = BaseServer()
     s.setup()

@@ -8,7 +8,7 @@ from transformers import pipeline
 class BaseServer:
     """Class BaseServer should contain two methods."""
     def setup(self):
-        """In setup step, we inilialize summarization pipeline.
+        """In setup step, we inilialize the summarization pipeline.
         """
         self.pipeline = pipeline("summarization")
 
@@ -19,7 +19,7 @@ class BaseServer:
         return [r["summary_text"] for r in result]
 
 
-# You can try your server running it locally:
+# run server locally
 if __name__ == "__main__":
     s = BaseServer()
     s.setup()
